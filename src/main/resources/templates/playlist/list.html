@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spotmusic</title>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>List Music</h1>
+    </div>
+
+    <div>
+        <a class="btn btn-primary" th:href="@{/playlists/cadastro}">Nova playlist</a>
+    </div>
+    <hr/>
+
+    <div th:if="${playlists != null}">
+        <h4>
+            Playlists
+        </h4>
+
+        <div th:if="${mensagem != null}">
+            <div class="alert alert-info" role="alert">
+                <span th:text="${mensagem}">mensagem</span>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Ação</th>
+            </tr>
+            </thead>
+            <tr th:each="playlist : ${playlists}">
+                <td >
+                    <a th:text="${playlist.nome}" th:href="@{/playlists/{id}/musicas/listar(id=${playlist.id})}">nome</a>
+                </td>
+                <td th:text="${playlist.descricao}">descricao</td>
+                <td>
+                    <a class="btn btn-sm btn-info" th:href="@{/playlists/{id}/atualizar(id=${playlist.id})}">Editar</a>
+
+                    <a class="btn btn-sm btn-danger"  th:href="@{/playlists/{id}/remover(id=${playlist.id})}" onclick="return confirm('Deseja deletar?');">Excluir</a>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div th:if="${#lists.isEmpty(playlists)}">
+        <div class="alert alert-info" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            0 playlists cadastradas!
+        </div>
+    </div>
+    <hr/>
+
+<<<<<<< HEAD
+    <a class="btn btn-light" href="/">Voltar</a>
+    <a class="btn btn-light" href="/playlists/export">PDF</a>
+=======
+    <a class="btn btn-light" href="/home">Voltar</a>
+>>>>>>> 8e4fc529b4fc91ee6a4db0dec83d3893f5e9d480
+    <hr/>
+
+    <footer class="footer">
+        <p>&copy; 2020 Bruno Vicente Alves</p>
+    </footer>
+
+</div>
+</body>
