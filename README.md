@@ -1,6 +1,6 @@
 ## Aplicativo de Lista de Musica 💿 💽
 
-### Projeto feito nas aulas de Spring boot da DevMedia
+### Projeto feito nas aulas de Spring boot da DevMedia, a onde pessoa cria um nome para PlayList e Atribui nome de musicas a essa Playlist. 
 
 #### Neste Projeto usamos :
 
